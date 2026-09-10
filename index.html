@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生存之旅2-联机合作射击玩法与新手入门指南</title>
+<meta name="description" content="生存之旅2是一款以四人合作、丧尸生存为核心的射击游戏。本页整理其玩法特色、模式区别、武器与特殊感染者应对、联机与配置参考、新手入门建议与常见问题。">
+<meta name="keywords" content="生存之旅2,生存之旅2联机,生存之旅2玩法,丧尸合作射击,特殊感染者,生存之旅2新手攻略">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0e1114;
+  --bg2:#161b20;
+  --panel:#1b2128;
+  --line:#2a323b;
+  --txt:#e6ebef;
+  --sub:#9aa7b2;
+  --accent:#c0392b;
+  --accent2:#e05a3a;
+  --safe:#5aa469;
+  --warn:#d9a441;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* 顶部条 */
+.topbar{
+  background:#0a0d0f;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+  color:var(--sub);
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;flex-wrap:wrap}
+.topbar span.dot{color:var(--accent2);margin-right:6px}
+
+/* 页眉 */
+header.site-head{
+  background:linear-gradient(180deg,#171d23 0%,#111519 100%);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+}
+.head-inner{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;letter-spacing:.5px}
+.logo .mark{
+  width:36px;height:36px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:#fff;font-weight:800;
+}
+.logo small{display:block;font-size:11px;color:var(--sub);font-weight:400;letter-spacing:0}
+nav.main-nav ul{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
+nav.main-nav a{
+  display:block;padding:8px 14px;border-radius:6px;
+  font-size:14px;color:var(--sub);transition:.2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{background:#232b33;color:#fff}
+.head-cta{
+  background:var(--accent);color:#fff;padding:9px 18px;border-radius:6px;
+  font-size:14px;font-weight:600;white-space:nowrap;transition:.2s;
+}
+.head-cta:hover{background:var(--accent2)}
+
+/* 首屏 */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(192,57,43,.28),transparent 55%),
+    radial-gradient(circle at 12% 80%,rgba(90,164,105,.14),transparent 50%),
+    linear-gradient(160deg,#141a20 0%,#0d1114 100%);
+  border-bottom:1px solid var(--line);
+  padding:64px 0 56px;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 4px);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:44px;align-items:center;position:relative;z-index:2}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tag{
+  font-size:12px;padding:4px 11px;border-radius:20px;
+  border:1px solid var(--line);background:#1d242b;color:var(--sub);
+}
+.tag.hot{border-color:rgba(224,90,58,.5);color:var(--accent2);background:rgba(224,90,58,.08)}
+.hero h1{
+  font-size:38px;line-height:1.3;letter-spacing:.5px;margin-bottom:18px;
+}
+.hero h1 em{font-style:normal;color:var(--accent2)}
+.hero p.lead{color:var(--sub);font-size:16px;margin-bottom:26px;max-width:600px}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:7px;
+  font-size:15px;font-weight:600;transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--txt);background:#1a2026}
+.btn-ghost:hover{border-color:var(--accent2);color:var(--accent2)}
+
+.hero-side{
+  background:rgba(22,27,32,.85);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:22px;
+  backdrop-filter:blur(4px);
+}
+.hero-side h3{font-size:15px;margin-bottom:14px;color:var(--txt);display:flex;align-items:center;gap:8px}
+.hero-side h3::before{content:"";width:3px;height:15px;background:var(--accent);border-radius:2px}
+.fact-list{list-style:none;font-size:14px}
+.fact-list li{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:9px 0;border-bottom:1px dashed #262e36;color:var(--sub);
+}
+.fact-list li:last-child{border-bottom:none}
+.fact-list b{color:var(--txt);font-weight:600;text-align:right}
+
+/* 通用区块 */
+section{padding:56px 0}
+.sec-head{margin-bottom:32px}
+.sec-head .kicker{
+  font-size:12px;letter-spacing:2px;color:var(--accent2);
+  text-transform:uppercase;margin-bottom:8px;font-weight:700;
+}
+.sec-head h2{font-size:26px;letter-spacing:.4px}
+.sec-head p{color:var(--sub);font-size:15px;margin-top:8px;max-width:760px}
+
+/* 玩法特色卡片 */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.f-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:24px 22px;transition:.25s;
+}
+.f-card:hover{border-color:#3a4552;transform:translateY(-3px)}
+.f-card .ico{
+  width:42px;height:42px;border-radius:9px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+  background:rgba(192,57,43,.14);color:var(--accent2);
+}
+.f-card h3{font-size:17px;margin-bottom:9px}
+.f-card p{font-size:14px;color:var(--sub)}
+
+/* 模式对比 */
+.mode-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border-radius:10px;overflow:hidden}
+.mode-table th,.mode-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.mode-table th{background:#20272e;color:var(--txt);font-size:13px;letter-spacing:.5px}
+.mode-table td{color:var(--sub)}
+.mode-table td:first-child{color:var(--txt);font-weight:600}
+.mode-table tr:last-child td{border-bottom:none}
+
+/* 双栏内容 */
+.two-col{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:start}
+.prose h3{font-size:18px;margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--accent)}
+.prose h3:first-child{margin-top:0}
+.prose p{color:var(--sub);font-size:15px;margin-bottom:12px}
+.prose ul{margin:10px 0 16px 20px;color:var(--sub);font-size:15px}
+.prose ul li{margin-bottom:7px}
+.prose ul li b{color:var(--txt)}
+
+/* 侧栏 */
+.side-box{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:20px;margin-bottom:20px;
+}
+.side-box h3{font-size:15px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.rank-list{list-style:none;counter-reset:rk}
+.rank-list li{
+  counter-increment:rk;display:flex;gap:12px;align-items:flex-start;
+  padding:9px 0;font-size:14px;color:var(--sub);border-bottom:1px dashed #262e36;
+}
+.rank-list li:last-child{border-bottom:none}
+.rank-list li::before{
+  content:counter(rk);
+  flex:0 0 22px;height:22px;border-radius:5px;
+  background:#262f38;color:var(--sub);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+}
+.rank-list li:nth-child(1)::before{background:var(--accent);color:#fff}
+.rank-list li:nth-child(2)::before{background:#b8532f;color:#fff}
+.rank-list li:nth-child(3)::before{background:#7a5a2e;color:#fff}
+.rank-list b{color:var(--txt);display:block;font-weight:600;font-size:14px}
+.rank-list span{font-size:12.5px;color:var(--sub)}
+
+/* 特殊感染者应对 */
+.si-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.si-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:18px;position:relative;overflow:hidden;
+}
+.si-card::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+}
+.si-card h3{font-size:15.5px;margin-bottom:6px;color:var(--txt)}
+.si-card .lvl{font-size:11.5px;color:var(--warn);margin-bottom:10px;letter-spacing:.5px}
+.si-card p{font-size:13.5px;color:var(--sub)}
+
+/* 步骤 */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:st}
+.step{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:22px 20px;position:relative;
+}
+.step::before{
+  counter-increment:st;content:"0" counter(st);
+  font-size:26px;font-weight:800;color:#2c353e;display:block;margin-bottom:8px;
+}
+.step h3{font-size:16px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--sub)}
+
+/* 提示条 */
+.notice{
+  background:rgba(217,164,65,.08);border:1px solid rgba(217,164,65,.32);
+  border-left:4px solid var(--warn);
+  border-radius:8px;padding:16px 20px;font-size:14px;color:#d8cba9;
+  margin:24px 0;
+}
+.notice b{color:var(--warn)}
+
+/* FAQ */
+.faq-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:9px;
+  margin-bottom:12px;overflow:hidden;
+}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:16px 20px;font-size:15.5px;color:var(--txt);font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:inherit;
+}
+.faq-q .plus{color:var(--accent2);font-size:19px;transition:.25s;flex:0 0 auto}
+.faq-item.open .faq-q .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 20px 18px;font-size:14.5px;color:var(--sub)}
+.faq-item.open .faq-a{max-height:420px}
+
+/* 页脚 */
+footer.site-foot{
+  background:#0a0d0f;border-top:1px solid var(--line);
+  padding:44px 0 26px;font-size:14px;
+}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;margin-bottom:32px}
+.foot-brand .logo{margin-bottom:12px}
+.foot-brand p{color:var(--sub);font-size:13.5px;max-width:330px}
+.foot-col h4{font-size:14px;margin-bottom:14px;color:var(--txt)}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:9px}
+.foot-col a{color:var(--sub);font-size:13.5px;transition:.2s}
+.foot-col a:hover{color:var(--accent2)}
+.foot-bottom{
+  border-top:1px solid var(--line);padding-top:20px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  color:#6d7a85;font-size:13px;
+}
+
+/* 响应式 */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .si-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr;gap:28px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .head-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:12px}
+  nav.main-nav{order:3;width:100%}
+  nav.main-nav ul{gap:2px}
+  nav.main-nav a{padding:7px 10px;font-size:13px}
+  .hero{padding:44px 0 40px}
+  .hero h1{font-size:27px}
+  section{padding:40px 0}
+  .sec-head h2{font-size:21px}
+  .feature-grid,.si-grid,.steps{grid-template-columns:1fr}
+  .mode-table{font-size:13px}
+  .mode-table th,.mode-table td{padding:11px 12px}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot">●</span>四人合作 · 丧尸生存射击 · 玩法资料整理</span>
+    <span>内容以玩法说明与入门参考为主</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a href="#" class="logo">
+      <span class="mark">L4D</span>
+      <span>生存之旅2<small>合作生存玩法资料站</small></span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#features" class="active">玩法特色</a></li>
+        <li><a href="#modes">模式区别</a></li>
+        <li><a href="#infected">特殊感染者</a></li>
+        <li><a href="#start">新手入门</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <a href="#start" class="head-cta">新手快速上手</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="tag-row">
+          <span class="tag hot">四人合作</span>
+          <span class="tag">丧尸题材</span>
+          <span class="tag">第一人称射击</span>
+          <span class="tag">团队配合</span>
+        </div>
+        <h1>生存之旅2：<em>四人合作</em>穿越丧尸潮的生存射击体验</h1>
+        <p class="lead">
+          生存之旅2（Left 4 Dead 2）是一款以四人小队合作、丧尸生存为核心的第一人称射击游戏。
+          玩家需要在有限资源下互相掩护、清理路径、抵御成群的感染者，并在关键节点完成撤离。
+          本页围绕它的玩法机制、模式差异、特殊感染者应对与新手入门要点进行系统整理，帮助新玩家快速理解这款游戏“为什么强调配合”。
+        </p>
+        <div class="btn-row">
+          <a href="#start" class="btn btn-primary">查看入门步骤</a>
+          <a href="#infected" class="btn btn-ghost">认识特殊感染者</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h3>玩法信息速览</h3>
+        <ul class="fact-list">
+          <li><span>核心人数</span><b>4 人小队</b></li>
+          <li><span>视角类型</span><b>第一人称射击</b></li>
+          <li><span>核心目标</span><b>抵达安全屋并撤离</b></li>
+          <li><span>主要威胁</span><b>普通感染者 + 特殊感染者</b></li>
+          <li><span>关键资源</span><b>弹药、医疗、投掷物</b></li>
+          <li><span>对局节奏</span><b>推进—遭遇—防守—撤离</b></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 玩法特色 -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Core Gameplay</div>
+        <h2>生存之旅2的玩法核心</h2>
+        <p>与单打独斗的射击游戏不同，这款作品把“队伍是否完整”放在了胜负的中心位置。理解下面几点，基本就理解了它的设计逻辑。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="f-card">
+          <div class="ico">◆</div>
+          <h3>四人协作不可替代</h3>
+          <p>倒地后需要队友扶起，被特殊感染者抓住时需要队友解救。任何一个人掉队，整支队伍的推进速度与安全度都会明显下降。</p>
+        </article>
+        <article class="f-card">
+          <div class="ico">◆</div>
+          <h3>动态的“导演系统”</h3>
+          <p>游戏会根据队伍当前状态调整感染者投放节奏与物资分布，状态好时压力更大，状态差时相对缓和，让每局体验都不完全相同。</p>
+        </article>
+        <article class="f-card">
+          <div class="ico">◆</div>
+          <h3>资源管理贯穿全程</h3>
+          <p>医疗包、止痛药、投掷物和弹药都有限。什么时候用、留给谁用，往往比枪法更能决定一局能否走完。</p>
+        </article>
+        <article class="f-card">
+          <div class="ico">◆</div>
+          <h3>地形与站位意识</h3>
+          <p>狭窄通道、开阔场地、需要防守的撤离点各有打法。背靠墙壁、互相照看死角，是减少被偷袭的基本习惯。</p>
+        </article>
+        <article class="f-card">
+          <div class="ico">◆</div>
+          <h3>近战与远程搭配</h3>
+          <p>近战武器在清理贴身的普通感染者时效率很高且不消耗弹药，远程枪械则负责处理远处的威胁与特殊感染者。</p>
+        </article>
+        <article class="f-card">
+          <div class="ico">◆</div>
+          <h3>沟通成本低但收益高</h3>
+          <p>哪怕只是简单报点“左边有烟”“我被拉了”，也能显著提升队伍反应速度。沉默推进通常是最容易团灭的方式。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模式区别 -->
+  <section id="modes" style="background:#101418;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Game Modes</div>
+        <h2>主要模式与玩法差异</h2>
+        <p>不同模式对配合的要求差别很大，新手建议从合作战役入手，熟悉地图与感染者行为后再尝试对抗类玩法。</p>
+      </div>
+      <table class="mode-table">
+        <thead>
+          <tr>
+            <th>模式类型</th>
+            <th>核心玩法</th>
+            <th>配合要求</th>
+            <th>适合人群</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>合作战役</td>
+            <td>四名玩家扮演幸存者，从起点推进到安全屋并完成撤离</td>
+            <td>中等，重在互相掩护与资源分配</td>
+            <td>新手、喜欢剧情推进与团队体验的玩家</td>
+          </tr>
+          <tr>
+            <td>对抗模式</td>
+            <td>一方扮演幸存者推进，另一方轮流扮演特殊感染者进行拦截</td>
+            <td>较高，需要熟悉双方操作与地图节点</td>
+            <td>已熟悉基础玩法、追求竞技感的玩家</td>
+          </tr>
+          <tr>
+            <td>生存模式</td>
+            <td>在固定场地内尽可能长时间抵御一波波感染者</td>
+            <td>高，站位与火力分配决定坚持时长</td>
+            <td>喜欢挑战与极限配合的玩家</td>
+          </tr>
+          <tr>
+            <td>清道夫模式</td>
+            <td>在限定条件下收集并搬运油桶，同时应对感染者干扰</td>
+            <td>中等偏高，考验分工与路线选择</td>
+            <td>想换换节奏、体验目标型玩法的玩家</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="notice">
+        <b>提示：</b>不同平台的可用模式与联机方式可能存在差异，具体以你所使用的游戏版本与平台说明为准。
+      </div>
+    </div>
+  </section>
+
+  <!-- 特殊感染者 -->
+  <section id="infected">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Special Infected</div>
+        <h2>特殊感染者与应对思路</h2>
+        <p>普通感染者靠数量施压，特殊感染者则靠“控制”制造危机。被控制住的那几秒，往往就是一局崩盘的起点。</p>
+      </div>
+      <div class="si-grid">
+        <article class="si-card">
+          <h3>烟鬼</h3>
+          <div class="lvl">威胁：远程拖拽</div>
+          <p>会用长舌把玩家拉离队伍。被拉时立刻呼叫队友，其他人优先打断舌头而不是追着打本体。</p>
+        </article>
+        <article class="si-card">
+          <h3>猎人</h3>
+          <div class="lvl">威胁：扑倒压制</div>
+          <p>从高处或拐角扑倒玩家并持续伤害。听到扑击声要留意上方与侧后方，队友需第一时间推开。</p>
+        </article>
+        <article class="si-card">
+          <h3>冲锋者</h3>
+          <div class="lvl">威胁：冲撞连击</div>
+          <p>正面冲撞会把玩家撞飞并反复攻击。避免在长直通道中并排行走，被撞后队友要快速清场。</p>
+        </article>
+        <article class="si-card">
+          <h3>喷吐者</h3>
+          <div class="lvl">威胁：区域封锁</div>
+          <p>吐出腐蚀性液体阻挡视线与路径。不要硬穿液体，绕行或先清理周围普通感染者再通过。</p>
+        </article>
+        <article class="si-card">
+          <h3>重击者</h3>
+          <div class="lvl">威胁：高血量冲撞</div>
+          <p>体型大、血量高，会冲向玩家造成击退。优先集火，避免被它把队伍阵型冲散。</p>
+        </article>
+        <article class="si-card">
+          <h3>女巫</h3>
+          <div class="lvl">威胁：被动激怒</div>
+          <p>平时静止哭泣，被惊扰后会高速追击。能绕开就绕开，必要时由队友集火快速处理。</p>
+        </article>
+        <article class="si-card">
+          <h3>骑师</h3>
+          <div class="lvl">威胁：骑乘控制</div>
+          <p>会跳到玩家身上控制其移动方向。被骑时队友需尽快击杀骑师，避免被带离队伍。</p>
+        </article>
+        <article class="si-card">
+          <h3>坦克</h3>
+          <div class="lvl">威胁：高强度压迫</div>
+          <p>血量极高、破坏力强。核心思路是分散站位、边退边打，利用地形与投掷物争取输出时间。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 新手入门 + 侧栏 -->
+  <section id="start" style="background:#101418;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Getting Started</div>
+        <h2>新手入门：从第一次进游戏到稳定通关</h2>
+        <p>不需要一开始就追求高难度，先把下面四步做扎实，体验会顺畅很多。</p>
+      </div>
+
+      <div class="steps" style="margin-bottom:40px">
+        <article class="step">
+          <h3>先打合作战役</h3>
+          <p>从低难度合作模式开始，熟悉操作、地图走向和安全屋位置，不要一上来就挑战高难度。</p>
+        </article>
+        <article class="step">
+          <h3>固定跟随队伍</h3>
+          <p>尽量与队友保持可视距离，不单独冲进未知房间。落单是被特殊感染者带走的最常见原因。</p>
+        </article>
+        <article class="step">
+          <h3>学会分配资源</h3>
+          <p>医疗包优先给血量最低或承担前排的队友，投掷物留给成群的感染者和坦克出现时使用。</p>
+        </article>
+        <article class="step">
+          <h3>养成报点习惯</h3>
+          <p>看到特殊感染者、发现物资、准备进入防守点，都简单说一句。信息共享比个人技术更能提升通关率。</p>
+        </article>
+      </div>
+
+      <div class="two-col">
+        <div class="prose">
+          <h3>武器与装备的基本取舍</h3>
+          <p>游戏中的枪械大致可分为霰弹枪、突击步枪、冲锋枪与狙击类。它们没有绝对强弱，更多取决于你的站位与队伍分工。</p>
+          <ul>
+            <li><b>霰弹枪：</b>近距离清理普通感染者效率高，面对贴身的特殊感染者也有不错的表现，但远距离压制力有限。</li>
+            <li><b>突击步枪：</b>综合性能均衡，适合大多数场景，是新手比较稳妥的选择。</li>
+            <li><b>冲锋枪：</b>射速快、弹匣容量可观，适合边走边打，但单发伤害偏低。</li>
+            <li><b>狙击类：</b>适合远距离点杀特殊感染者，需要一定的准度和站位意识。</li>
+            <li><b>近战武器：</b>不消耗弹药，清理贴身感染者非常高效，但需要控制好与感染者的距离。</li>
+          </ul>
+
+          <h3>推进节奏怎么把握</h3>
+          <p>很多新手队伍的问题不是打不过，而是走得太散或停得太久。比较稳妥的节奏是：清空当前区域 → 确认四人到位 → 一起推进到下一个掩体 → 再停下补给。遇到需要防守的撤离点，提前商量好谁看哪个方向，比临时乱跑有效得多。</p>
+
+          <h3>联机与配置的注意事项</h3>
+          <p>联机体验受网络环境影响较大，建议在网络稳定的环境下进行，并提前确认所用平台的好友添加与组队方式。硬件方面，这款作品对配置的要求相对友好，但如果同时开启较多后台程序，仍可能出现帧率波动。遇到卡顿可以先降低画质选项、关闭不必要的后台应用，再判断是否为网络延迟导致。</p>
+
+          <div class="notice">
+            <b>安全提醒：</b>请通过正规渠道获取游戏与更新内容。对于来源不明的“辅助工具”“修改器”或所谓“免费资源”，建议保持谨慎，避免账号与设备安全受到影响。
+          </div>
+
+          <h3>如何逐步提升水平</h3>
+          <p>提升的关键往往不在枪法，而在习惯。可以刻意练习三件事：一是每次进入新区域先观察出口与高点；二是在队友被控制时优先解救而不是继续输出；三是记住每张地图中容易遭遇特殊感染者的位置。坚持一段时间后，你会明显感觉到队伍的容错率变高。</p>
+        </div>
+
+        <aside>
+          <div class="side-box">
+            <h3>新手容易踩的坑</h3>
+            <ol class="rank-list">
+              <li><div><b>独自冲锋</b><span>脱离队伍后一旦被控，几乎无人能及时救援</span></div></li>
+              <li><div><b>乱用医疗包</b><span>轻微受伤就使用，导致关键时刻没有补给</span></div></li>
+              <li><div><b>忽视声音提示</b><span>特殊感染者出现前通常有特征音效</span></div></li>
+              <li><div><b>堵住队友枪线</b><span>狭窄处并排站位容易互相挡枪</span></div></li>
+              <li><div><b>撤离点乱跑</b><span>没有分工防守，容易被一波带走</span></div></li>
+            </ol>
+          </div>
+          <div class="side-box">
+            <h3>推荐的上手顺序</h3>
+            <ol class="rank-list">
+              <li><div><b>低难度合作战役</b><span>熟悉操作与地图结构</span></div></li>
+              <li><div><b>中等难度合作</b><span>练习资源分配与站位</span></div></li>
+              <li><div><b>生存模式</b><span>强化防守与火力配合</span></div></li>
+              <li><div><b>对抗模式</b><span>理解双方视角与地图节点</span></div></li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">FAQ</div>
+        <h2>常见问题</h2>
+        <p>整理了一些新玩家在了解这款游戏时经常会问到的内容。</p>
+      </div>
+
+      <div class="faq-item open">
+        <button class="faq-q" type="button">生存之旅2可以单人玩吗？<span class="plus">＋</span></button>
+        <div class="faq-a"><p>可以。游戏提供由电脑控制的队友，单人也能完成战役流程。不过电脑队友在资源使用和应对特殊感染者时的判断相对固定，整体体验与真人组队存在差距。如果条件允许，和朋友一起玩会更接近这款游戏的设计初衷。</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">新手应该从哪个难度开始？<span class="plus">＋</span></button>
+        <div class="faq-a"><p>建议从较低难度开始，先熟悉地图路线、安全屋位置和特殊感染者的行为模式。等你能稳定判断什么时候该推进、什么时候该防守，再逐步提高难度会更顺畅。</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">为什么队友总是被特殊感染者带走？<span class="plus">＋</span></button>
+        <div class="faq-a"><p>通常有两个原因：一是队伍走得太散，被控制的玩家离其他人太远，来不及救援；二是没有留意声音提示，特殊感染者往往在出现前就有特征音效。保持队形紧凑、听到异常声音立刻互相确认，能明显减少这种情况。</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">医疗包和止痛药该怎么选？<span class="plus">＋</span></button>
+        <div class="faq-a"><p>医疗包可以恢复较多生命值，适合在血量较低或战斗间隙使用；止痛药提供的是临时生命值，适合在需要立刻继续推进时应急。一般来说，医疗包要留给真正需要的时刻，而不是受一点伤就用掉。</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">联机时延迟高怎么办？<span class="plus">＋</span></button>
+        <div class="faq-a"><p>可以先检查本地网络是否稳定，尽量使用有线连接或信号良好的无线网络，同时关闭占用带宽的后台程序。如果问题依旧，可能与所选服务器区域有关，可以尝试更换联机区域或与延迟相近的玩家组队。</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">对抗模式和合作模式差别大吗？<span class="plus">＋</span></button>
+        <div class="faq-a"><p>差别比较明显。合作模式主要面对电脑控制的感染者，重点在推进与资源管理；对抗模式则由真人轮流扮演特殊感染者，节奏更快、针对性更强，需要同时理解幸存者和感染者两边的操作逻辑。</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <span class="mark">L4D</span>
+          <span>生存之旅2<small>合作生存玩法资料站</small></span>
+        </div>
+        <p>围绕生存之旅2的玩法机制、模式区别、特殊感染者应对与新手入门进行内容整理，帮助玩家更快理解这款合作射击游戏的核心乐趣。</p>
+      </div>
+      <div class="foot-col">
+        <h4>玩法内容</h4>
+        <ul>
+          <li><a href="#features">玩法特色</a></li>
+          <li><a href="#modes">模式区别</a></li>
+          <li><a href="#infected">特殊感染者</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>入门参考</h4>
+        <ul>
+          <li><a href="#start">新手入门步骤</a></li>
+          <li><a href="#start">武器与装备取舍</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>温馨提示</h4>
+        <ul>
+          <li><a href="#start">联机与配置建议</a></li>
+          <li><a href="#start">安全获取游戏</a></li>
+          <li><a href="#faq">延迟问题排查</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>本站为玩法资料整理页面，内容以通用玩法说明为主。</span>
+      <span>请通过正规渠道获取游戏与更新内容</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(other){ other.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  var navLinks = document.querySelectorAll('nav.main-nav a');
+  navLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+    </html>
