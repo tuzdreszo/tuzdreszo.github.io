@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>射击类网游排行 - 热门射击网游榜单与选择参考指南</title>
+<meta name="description" content="射击类网游排行页面整理当前受关注的射击网游类型、排行参考维度、平台分布与新手选择建议，帮助玩家快速了解竞技射击、战术射击、大逃杀等不同方向，并找到适合自己的射击网游。">
+<meta name="keywords" content="射击类网游排行,射击网游,竞技射击,战术射击,大逃杀网游,射击游戏推荐">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --bg:#0d1117;
+  --bg-soft:#141b24;
+  --panel:#18212c;
+  --panel-2:#1f2a37;
+  --line:#2a3644;
+  --text:#e8eef5;
+  --muted:#9db0c3;
+  --accent:#ff6b35;
+  --accent-2:#ffb703;
+  --cyan:#31c7d8;
+  --green:#4cd97b;
+  --radius:14px;
+  --shadow:0 12px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(1180px,92%);margin:0 auto}
+
+/* 顶部条 */
+.topbar{
+  background:linear-gradient(90deg,#1a2330,#131a23);
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+  color:var(--muted);
+}
+.topbar .container{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:8px 0;flex-wrap:wrap;
+}
+.topbar strong{color:var(--accent-2)}
+
+/* 页眉 */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,17,23,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:14px 0;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:grid;place-items:center;
+  font-weight:800;font-size:18px;color:#1a1005;
+  box-shadow:0 6px 18px rgba(255,107,53,.35);
+}
+.brand-text b{display:block;font-size:17px;letter-spacing:.5px}
+.brand-text span{font-size:12px;color:var(--muted);letter-spacing:2px}
+
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{
+  padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);
+  border:1px solid transparent;transition:.2s;
+}
+.nav a:hover{color:var(--text);background:var(--panel-2);border-color:var(--line)}
+.nav a.active{color:#1a1005;background:linear-gradient(135deg,var(--accent),var(--accent-2));font-weight:700}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  padding:64px 0 56px;
+  background:
+    radial-gradient(900px 420px at 12% -10%,rgba(255,107,53,.18),transparent 60%),
+    radial-gradient(760px 380px at 88% 0%,rgba(49,199,216,.16),transparent 62%),
+    linear-gradient(180deg,#101720,#0d1117);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--accent-2);
+  border:1px solid rgba(255,183,3,.35);
+  background:rgba(255,183,3,.08);
+  padding:6px 14px;border-radius:999px;margin-bottom:20px;
+}
+.hero h1{
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.25;letter-spacing:.5px;margin-bottom:18px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{color:var(--muted);font-size:16px;max-width:620px;margin-bottom:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:999px;font-size:15px;font-weight:700;
+  border:1px solid transparent;cursor:pointer;transition:.22s;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1005}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,107,53,.35)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--panel)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-2)}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  max-width:560px;
+}
+.stat{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:14px 16px;
+}
+.stat b{display:block;font-size:20px;color:var(--accent-2)}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+/* 右侧排行预览 */
+.rank-preview{
+  background:linear-gradient(180deg,var(--panel),#131a23);
+  border:1px solid var(--line);border-radius:18px;
+  padding:22px;box-shadow:var(--shadow);
+}
+.rank-preview h2{font-size:16px;margin-bottom:4px}
+.rank-preview .sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+.rank-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.rank-list li{
+  display:flex;align-items:center;gap:12px;
+  background:var(--panel-2);border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px;
+}
+.rank-no{
+  width:28px;height:28px;flex:0 0 28px;border-radius:8px;
+  display:grid;place-items:center;font-size:13px;font-weight:800;
+  background:#232f3d;color:var(--muted);
+}
+.rank-list li:nth-child(1) .rank-no{background:linear-gradient(135deg,#ff6b35,#ffb703);color:#1a1005}
+.rank-list li:nth-child(2) .rank-no{background:#2f3d4e;color:#dfe8f2}
+.rank-list li:nth-child(3) .rank-no{background:#3a2f24;color:#ffb703}
+.rank-info{flex:1;min-width:0}
+.rank-info b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-info span{font-size:12px;color:var(--muted)}
+.rank-tag{
+  font-size:11.5px;color:var(--cyan);border:1px solid rgba(49,199,216,.35);
+  background:rgba(49,199,216,.08);padding:3px 9px;border-radius:999px;white-space:nowrap;
+}
+
+/* 通用区块 */
+section{padding:56px 0}
+.section-head{margin-bottom:28px;max-width:760px}
+.section-head .kicker{
+  font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700;
+  text-transform:uppercase;margin-bottom:10px;display:block;
+}
+.section-head h2{font-size:clamp(22px,2.6vw,30px);line-height:1.35;margin-bottom:12px}
+.section-head p{color:var(--muted);font-size:15px}
+
+/* 分类卡片 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:.22s;position:relative;overflow:hidden;
+}
+.cat-card::before{
+  content:"";position:absolute;inset:0 auto 0 0;width:3px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));opacity:0;transition:.22s;
+}
+.cat-card:hover{transform:translateY(-4px);border-color:#38485a;box-shadow:var(--shadow)}
+.cat-card:hover::before{opacity:1}
+.cat-icon{
+  width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+  font-size:20px;margin-bottom:14px;background:var(--panel-2);border:1px solid var(--line);
+}
+.cat-card h3{font-size:16.5px;margin-bottom:8px}
+.cat-card p{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.cat-meta{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  font-size:11.5px;color:var(--muted);background:var(--panel-2);
+  border:1px solid var(--line);padding:3px 10px;border-radius:999px;
+}
+
+/* 榜单表格 */
+.rank-table-wrap{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead{background:var(--panel-2)}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;color:var(--muted);letter-spacing:1px;font-weight:700;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#1b2531}
+.rank-cell{display:flex;align-items:center;gap:12px;min-width:180px}
+.rank-badge{
+  width:26px;height:26px;flex:0 0 26px;border-radius:7px;
+  display:grid;place-items:center;font-size:12.5px;font-weight:800;
+  background:#232f3d;color:var(--muted);
+}
+.rank-badge.top1{background:linear-gradient(135deg,#ff6b35,#ffb703);color:#1a1005}
+.rank-badge.top2{background:#33455a;color:#e8eef5}
+.rank-badge.top3{background:#3c3020;color:#ffb703}
+.rank-cell b{font-size:14.5px;display:block}
+.rank-cell span{font-size:12px;color:var(--muted)}
+.tag-line{display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  font-size:11.5px;padding:2px 9px;border-radius:999px;
+  border:1px solid var(--line);color:var(--muted);background:var(--panel-2);white-space:nowrap;
+}
+.tag.hot{color:#ff8a5c;border-color:rgba(255,107,53,.35);background:rgba(255,107,53,.08)}
+.tag.team{color:var(--cyan);border-color:rgba(49,199,216,.35);background:rgba(49,199,216,.08)}
+.tag.casual{color:var(--green);border-color:rgba(76,217,123,.3);background:rgba(76,217,123,.08)}
+.table-note{font-size:12.5px;color:var(--muted);padding:14px 16px;background:#131a23;border-top:1px solid var(--line)}
+
+/* 维度评估 */
+.dim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.dim-card{
+  background:linear-gradient(180deg,var(--panel),#131a23);
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px;
+}
+.dim-card h3{font-size:15.5px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.dim-card h3 i{
+  width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;
+}
+.dim-card p{font-size:13.5px;color:var(--muted)}
+
+/* 双栏内容 */
+.split{display:grid;grid-template-columns:1.4fr .9fr;gap:32px;align-items:start}
+.article-list{display:flex;flex-direction:column;gap:16px}
+.article-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:.2s;
+}
+.article-item:hover{border-color:#38485a;background:#1a2430}
+.article-item h3{font-size:16px;margin-bottom:8px}
+.article-item p{font-size:13.5px;color:var(--muted)}
+.article-item .meta{font-size:12px;color:#6f8296;margin-top:10px}
+
+.side-panel{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px;position:sticky;top:92px;
+}
+.side-panel h3{font-size:16px;margin-bottom:14px}
+.tip-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.tip-list li{
+  font-size:13.5px;color:var(--muted);padding-left:18px;position:relative;
+}
+.tip-list li::before{
+  content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+}
+.tip-list li b{color:var(--text)}
+
+/* 新手路径 */
+.path-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.path-step{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;position:relative;
+}
+.path-step .step-no{
+  font-size:28px;font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:12px;display:block;
+}
+.path-step h3{font-size:15.5px;margin-bottom:8px}
+.path-step p{font-size:13.5px;color:var(--muted)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;color:var(--text);
+  font-size:15px;font-weight:600;padding:18px 20px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:inherit;
+}
+.faq-q .arrow{
+  flex:0 0 auto;width:22px;height:22px;border-radius:50%;
+  display:grid;place-items:center;font-size:13px;color:var(--accent-2);
+  border:1px solid var(--line);background:var(--panel-2);transition:.25s;
+}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+  font-size:14px;color:var(--muted);
+}
+.faq-a p{padding:0 20px 18px}
+.faq-item.open .faq-a{max-height:320px}
+
+/* 页脚 */
+.site-footer{
+  background:#0a0e13;border-top:1px solid var(--line);
+  padding:44px 0 26px;margin-top:20px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:30px;
+}
+.footer-brand b{font-size:16px;display:block;margin-bottom:10px}
+.footer-brand p{font-size:13px;color:var(--muted);max-width:320px}
+.footer-col h4{font-size:14px;margin-bottom:14px;color:var(--text)}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:13px;color:var(--muted);transition:.2s}
+.footer-col a:hover{color:var(--accent-2)}
+.footer-bottom{
+  border-top:1px solid var(--line);padding-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:12.5px;color:#6f8296;
+}
+
+/* 响应式 */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .split{grid-template-columns:1fr}
+  .side-panel{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .hero{padding:44px 0 40px}
+  section{padding:42px 0}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .nav{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .nav a{white-space:nowrap}
+  .footer-grid{grid-template-columns:1fr}
+  th,td{padding:11px 12px;font-size:13px}
+  .rank-cell{min-width:auto}
+  .hide-sm{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部提示条 -->
+<div class="topbar">
+  <div class="container">
+    <span>聚焦射击类网游排行参考 · 内容随版本与赛季变化动态调整</span>
+    <span>理性游戏 · <strong>合理安排时间</strong></span>
+  </div>
+</div>
+
+<!-- 页眉 -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-mark">FPS</div>
+      <div class="brand-text">
+        <b>射击网游观察站</b>
+        <span>SHOOTER RANKING</span>
+      </div>
+    </div>
+    <nav class="nav" aria-label="主导航">
+      <a class="active" href="#rank">排行榜</a>
+      <a href="#types">类型分类</a>
+      <a href="#dimensions">评估维度</a>
+      <a href="#guide">新手选择</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero" aria-label="页面简介">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-tag">● 射击类网游排行参考</span>
+        <h1>射击类网游排行：<em>看清不同类型</em>，再决定玩哪一款</h1>
+        <p class="lead">
+          射击类网游并没有唯一权威的“总榜”，不同平台、不同赛季、不同玩法方向的活跃度差异很大。
+          本页把竞技射击、战术射击、大逃杀、合作PVE等方向拆开梳理，给出排行参考维度与选择思路，
+          帮助你在下载和投入时间之前，先判断哪一类更适合自己。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#rank">查看排行参考</a>
+          <a class="btn btn-ghost" href="#guide">新手怎么选</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>4 类</b><span>主流玩法方向</span></div>
+          <div class="stat"><b>6 项</b><span>排行参考维度</span></div>
+          <div class="stat"><b>多平台</b><span>PC / 主机 / 移动</span></div>
+        </div>
+      </div>
+
+      <aside class="rank-preview" aria-label="热度关注前列">
+        <h2>关注度前列方向</h2>
+        <p class="sub">按玩法方向整理，非绝对名次</p>
+        <ul class="rank-list">
+          <li>
+            <span class="rank-no">1</span>
+            <span class="rank-info"><b>战术竞技 · 大逃杀</b><span>组队落地、缩圈对抗</span></span>
+            <span class="rank-tag">团队</span>
+          </li>
+          <li>
+            <span class="rank-no">2</span>
+            <span class="rank-info"><b>5v5 竞技射击</b><span>回合制、技能与枪法并重</span></span>
+            <span class="rank-tag">电竞</span>
+          </li>
+          <li>
+            <span class="rank-no">3</span>
+            <span class="rank-info"><b>硬核战术射击</b><span>高伤害、重配合与信息</span></span>
+            <span class="rank-tag">硬核</span>
+          </li>
+          <li>
+            <span class="rank-no">4</span>
+            <span class="rank-info"><b>合作 PVE 射击</b><span>刷本、副本与长期养成</span></span>
+            <span class="rank-tag">休闲</span>
+          </li>
+          <li>
+            <span class="rank-no">5</span>
+            <span class="rank-info"><b>移动端射击</b><span>碎片时间、上手门槛低</span></span>
+            <span class="rank-tag">便携</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 类型分类 -->
+  <section id="types">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Types</span>
+        <h2>射击类网游的主要玩法方向</h2>
+        <p>同样是“射击网游”，玩起来可能完全不同。先分清方向，排行榜才有参考意义。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="cat-icon">🎯</div>
+          <h3>竞技射击</h3>
+          <p>以回合制、小规模对抗为核心，强调枪法、走位与团队配合，通常有较完整的电竞赛事体系。</p>
+          <div class="cat-meta">
+            <span class="chip">5v5</span><span class="chip">回合制</span><span class="chip">电竞向</span>
+          </div>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🪂</div>
+          <h3>战术竞技 / 大逃杀</h3>
+          <p>多人同场、地图缩圈、资源搜集与生存对抗并存，单局节奏长，容错率相对更高。</p>
+          <div class="cat-meta">
+            <span class="chip">组队</span><span class="chip">缩圈</span><span class="chip">大地图</span>
+          </div>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🛡️</div>
+          <h3>硬核战术射击</h3>
+          <p>伤害高、节奏慢、信息价值大，一次失误就可能结束回合，适合喜欢策略与沟通的玩家。</p>
+          <div class="cat-meta">
+            <span class="chip">高拟真</span><span class="chip">重沟通</span><span class="chip">慢节奏</span>
+          </div>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🤝</div>
+          <h3>合作 PVE 射击</h3>
+          <p>以副本、任务、刷取装备为主线，对抗压力较小，适合想放松或和朋友长期一起玩的玩家。</p>
+          <div class="cat-meta">
+            <span class="chip">PVE</span><span class="chip">养成</span><span class="chip">副本</span>
+          </div>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📱</div>
+          <h3>移动端射击</h3>
+          <p>操作经过简化，单局时间更灵活，适合利用碎片时间游玩，也常有跨端或模拟器版本。</p>
+          <div class="cat-meta">
+            <span class="chip">便携</span><span class="chip">易上手</span><span class="chip">碎片时间</span>
+          </div>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🧩</div>
+          <h3>混合玩法射击</h3>
+          <p>把射击与英雄技能、塔防、载具或生存建造等元素结合，规则更复杂，但差异化体验明显。</p>
+          <div class="cat-meta">
+            <span class="chip">融合</span><span class="chip">创新</span><span class="chip">多样</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 排行参考表 -->
+  <section id="rank">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Ranking</span>
+        <h2>射击类网游排行参考表</h2>
+        <p>
+          下表按“玩法方向 + 关注维度”整理，用于横向比较，不代表任何官方榜单或商业排名。
+          实际热度会随版本更新、赛季更替和平台活动发生变化。
+        </p>
+      </div>
+
+      <div class="rank-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>方向</th>
+              <th>典型特征</th>
+              <th class="hide-sm">上手难度</th>
+              <th class="hide-sm">团队依赖</th>
+              <th>适合人群</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="rank-cell">
+                  <span class="rank-badge top1">1</span>
+                  <span><b>大逃杀类</b><span>战术竞技</span></span>
+                </div>
+              </td>
+              <td><div class="tag-line"><span class="tag hot">热度高</span><span class="tag">缩圈</span><span class="tag">搜集</span></div></td>
+              <td class="hide-sm">中等</td>
+              <td class="hide-sm">较高</td>
+              <td>喜欢长局节奏与队友配合</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="rank-cell">
+                  <span class="rank-badge top2">2</span>
+                  <span><b>5v5 竞技类</b><span>回合对抗</span></span>
+                </div>
+              </td>
+              <td><div class="tag-line"><span class="tag hot">电竞向</span><span class="tag team">团队</span><span class="tag">技能</span></div></td>
+              <td class="hide-sm">中等偏高</td>
+              <td class="hide-sm">高</td>
+              <td>追求竞技提升与赛事氛围</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="rank-cell">
+                  <span class="rank-badge top3">3</span>
+                  <span><b>硬核战术类</b><span>拟真对抗</span></span>
+                </div>
+              </td>
+              <td><div class="tag-line"><span class="tag">高伤害</span><span class="tag">信息战</span><span class="tag">慢节奏</span></div></td>
+              <td class="hide-sm">高</td>
+              <td class="hide-sm">很高</td>
+              <td>喜欢策略、沟通与真实感</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="rank-cell">
+                  <span class="rank-badge">4</span>
+                  <span><b>合作 PVE 类</b><span>副本刷取</span></span>
+                </div>
+              </td>
+              <td><div class="tag-line"><span class="tag casual">压力低</span><span class="tag">养成</span><span class="tag">长期</span></div></td>
+              <td class="hide-sm">低到中</td>
+              <td class="hide-sm">中</td>
+              <td>想放松、和朋友长期同玩</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="rank-cell">
+                  <span class="rank-badge">5</span>
+                  <span><b>移动端射击</b><span>便携对战</span></span>
+                </div>
+              </td>
+              <td><div class="tag-line"><span class="tag casual">易上手</span><span class="tag">碎片时间</span><span class="tag">跨端</span></div></td>
+              <td class="hide-sm">低</td>
+              <td class="hide-sm">中</td>
+              <td>时间零散、想随时开一局</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="rank-cell">
+                  <span class="rank-badge">6</span>
+                  <span><b>混合玩法类</b><span>融合创新</span></span>
+                </div>
+              </td>
+              <td><div class="tag-line"><span class="tag">差异化</span><span class="tag">规则复杂</span><span class="tag">新鲜感</span></div></td>
+              <td class="hide-sm">中到高</td>
+              <td class="hide-sm">中</td>
+              <td>玩腻传统射击、想尝鲜</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">
+          说明：表中“热度”“难度”等为综合体验层面的定性描述，用于帮助理解方向差异，
+          不构成对任何具体产品的评价或推荐排序。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 评估维度 -->
+  <section id="dimensions">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Dimensions</span>
+        <h2>判断一款射击网游是否适合你的六个维度</h2>
+        <p>与其只看名次，不如按自己的实际情况逐项对照，选出真正能长期玩下去的那一款。</p>
+      </div>
+      <div class="dim-grid">
+        <article class="dim-card">
+          <h3><i></i>上手门槛</h3>
+          <p>教程是否清晰、匹配是否分层、新手是否容易被高水平玩家压制，直接决定前几小时的体验。</p>
+        </article>
+        <article class="dim-card">
+          <h3><i></i>单局时长</h3>
+          <p>有的模式一局十几分钟，有的可能接近半小时。能否随时中断，关系到你能否稳定玩下去。</p>
+        </article>
+        <article class="dim-card">
+          <h3><i></i>团队依赖度</h3>
+          <p>强依赖固定队友的游戏体验更好，但凑不齐人时也更容易劝退；独狼友好度需要单独考虑。</p>
+        </article>
+        <article class="dim-card">
+          <h3><i></i>硬件与网络</h3>
+          <p>帧率稳定性、延迟表现和配置要求对射击类游戏尤其关键，低配设备应优先考虑优化较好的作品。</p>
+        </article>
+        <article class="dim-card">
+          <h3><i></i>更新与运营节奏</h3>
+          <p>赛季更新频率、平衡性调整和内容产出节奏，会影响长期游玩的动力与新鲜感。</p>
+        </article>
+        <article class="dim-card">
+          <h3><i></i>社区与学习资源</h3>
+          <p>攻略、教学、复盘内容是否丰富，决定了你遇到瓶颈时能否快速找到提升方法。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 双栏：观察文章 + 侧栏提示 -->
+  <section id="guide">
+    <div class="container split">
+      <div>
+        <div class="section-head">
+          <span class="kicker">Guide</span>
+          <h2>新手选择射击网游的四步路径</h2>
+          <p>按顺序走一遍，基本能排除掉大部分不适合自己的选项。</p>
+        </div>
+        <div class="path-grid">
+          <article class="path-step">
+            <span class="step-no">01</span>
+            <h3>先定玩法方向</h3>
+            <p>想清楚自己更喜欢快节奏对抗、长局生存，还是低压力的合作刷本，方向对了再谈具体作品。</p>
+          </article>
+          <article class="path-step">
+            <span class="step-no">02</span>
+            <h3>确认设备与时间</h3>
+            <p>评估电脑或手机能否稳定运行，以及每周大概能投入多少小时，避免选了节奏过重的游戏。</p>
+          </article>
+          <article class="path-step">
+            <span class="step-no">03</span>
+            <h3>看新手友好度</h3>
+            <p>优先选择有分层匹配、教学完善、社区活跃的方向，前期挫败感会明显更低。</p>
+          </article>
+          <article class="path-step">
+            <span class="step-no">04</span>
+            <h3>小成本试玩</h3>
+            <p>先通过免费模式或短时间体验判断手感与节奏，再决定是否长期投入时间和精力。</p>
+          </article>
+        </div>
+
+        <div class="article-list" style="margin-top:32px">
+          <article class="article-item">
+            <h3>为什么“射击类网游排行”很难有唯一答案</h3>
+            <p>
+              射击类网游的活跃度受平台、地区、赛季和活动影响很大。同一款游戏在不同地区的热度可能差异明显，
+              新赛季上线时数据也会出现短期波动。因此更合理的方式是按玩法方向分类比较，
+              再结合自己的设备、时间和社交情况做判断。
+            </p>
+            <div class="meta">排行参考 · 方法论</div>
+          </article>
+          <article class="article-item">
+            <h3>竞技射击与大逃杀：节奏差异在哪里</h3>
+            <p>
+              竞技射击通常以回合为单位，死亡后需要等待下一回合，节奏紧凑但容错低；
+              大逃杀单局更长，允许搜集资源和多次交战，容错相对更高，但对耐心和地图理解要求更强。
+              两者对“枪法”和“意识”的权重分配并不相同。
+            </p>
+            <div class="meta">玩法对比 · 节奏</div>
+          </article>
+          <article class="article-item">
+            <h3>硬核战术射击为什么劝退率高</h3>
+            <p>
+              这类游戏强调信息获取、语音沟通和位置判断，单次交火往往瞬间结束。
+              如果没有固定队友或不愿沟通，体验会明显下降。它更适合愿意投入时间学习地图与战术的玩家。
+            </p>
+            <div class="meta">玩法对比 · 硬核</div>
+          </article>
+          <article class="article-item">
+            <h3>移动端射击的适配与取舍</h3>
+            <p>
+              移动端为了适配触屏，通常会简化操作并加入辅助机制，上手更快，但在精细瞄准和竞技深度上
+              与键鼠端存在差异。若同时有跨端版本，需要注意匹配规则与操作方式的平衡设定。
+            </p>
+            <div class="meta">平台差异 · 移动端</div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <h3>选择时的实用提醒</h3>
+        <ul class="tip-list">
+          <li><b>先看方向再看名次：</b>方向不匹配，排名再高也难长期坚持。</li>
+          <li><b>关注配置要求：</b>射击类对帧率和延迟敏感，低配设备优先选优化好的方向。</li>
+          <li><b>留意匹配机制：</b>分层匹配是否合理，直接影响新手前期的挫败感。</li>
+          <li><b>确认社交需求：</b>强团队游戏最好有固定队友，否则体验落差较大。</li>
+          <li><b>控制投入节奏：</b>赛季制内容容易形成持续压力，建议提前规划游戏时间。</li>
+          <li><b>以官方信息为准：</b>版本、活动和运营状态请以游戏官方公告为准。</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2>关于射击类网游排行的常见问题</h2>
+        <p>整理玩家在选择射击网游时最常遇到的疑问，供参考。</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            射击类网游排行有官方权威榜单吗？
+            <span class="arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              通常没有统一的官方总榜。不同平台、地区和数据统计口径各不相同，排名结果也会随赛季变化。
+              更实用的做法是按玩法方向分类，再结合自己的设备、时间和偏好做选择。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            新手适合从哪种射击网游入手？
+            <span class="arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              如果追求低压力，可以先考虑合作 PVE 或移动端射击方向；如果喜欢竞技氛围，
+              建议选择有分层匹配和完整教学体系的竞技射击方向，前期体验会更平滑。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            配置一般的电脑能玩射击类网游吗？
+            <span class="arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              可以，但需要优先选择优化较好、配置要求较低的方向，并适当降低画质以保证帧率稳定。
+              射击类游戏对帧率和延迟较为敏感，稳定性往往比画面更重要。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            单排玩家适合哪些方向？
+            <span class="arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              单排体验较好的通常是个人能力权重较高的竞技射击方向，或可以独自完成的合作 PVE 内容。
+              强依赖语音配合的硬核战术方向，单排体验可能相对吃力。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            排行靠前的游戏一定更好玩吗？
+            <span class="arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              不一定。热度高通常意味着玩家多、匹配快、社区资源丰富，但玩法是否合口味因人而异。
+              建议把排行当作筛选起点，而不是最终结论。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <b>射击网游观察站</b>
+        <p>
+          围绕射击类网游排行、玩法分类与选择方法提供参考内容，
+          帮助玩家在投入时间之前做出更清晰的判断。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#rank">排行参考</a></li>
+          <li><a href="#types">类型分类</a></li>
+          <li><a href="#dimensions">评估维度</a></li>
+          <li><a href="#guide">新手选择</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>热门方向</h4>
+        <ul>
+          <li><a href="#types">竞技射击</a></li>
+          <li><a href="#types">大逃杀</a></li>
+          <li><a href="#types">硬核战术</a></li>
+          <li><a href="#types">合作 PVE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>使用说明</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#dimensions">选择建议</a></li>
+          <li><a href="#guide">时间管理</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>内容仅供选择参考，具体游戏信息请以官方公告为准。</span>
+      <span>适度游戏 · 注意休息</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function (item) {
+    var btn = item.querySelector('.faq-q');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      items.forEach(function (other) {
+        other.classList.remove('open');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
